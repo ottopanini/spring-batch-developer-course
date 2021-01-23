@@ -23,7 +23,7 @@ public class FlowFirstConfiguration {
 
     @Bean
     Step myFirstStep() {
-        return stepBuilderFactory.get("myStep")
+        return stepBuilderFactory.get("myFirstStep")
                 .tasklet((contrib, ctx) -> {
                     System.out.println("my first step was executed");
                     return RepeatStatus.FINISHED;

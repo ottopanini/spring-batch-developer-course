@@ -22,7 +22,7 @@ public class FlowLastConfiguration {
 
     @Bean
     Step myLastStep() {
-        return stepBuilderFactory.get("myStep")
+        return stepBuilderFactory.get("myLastStep")
                 .tasklet((contrib, ctx) -> {
                     System.out.println("my last step was executed");
                     return RepeatStatus.FINISHED;

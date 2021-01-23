@@ -50,6 +50,7 @@ public class StepTransitionConfiguration {
                .start(step1())
                .next(step3())
                .next(step2())
+               .next(step2())
                .build();
     }
 }

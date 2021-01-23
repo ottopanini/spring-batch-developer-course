@@ -48,8 +48,8 @@ public class StepTransitionConfiguration {
     Job job() {
        return jobBuilderFactory.get("job")
                .start(step1())
-               .next(step2())
                .next(step3())
+               .next(step2())
                .build();
     }
 }

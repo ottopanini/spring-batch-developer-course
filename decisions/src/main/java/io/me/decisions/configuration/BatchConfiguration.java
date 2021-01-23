@@ -65,8 +65,6 @@ public class BatchConfiguration {
                 .from(oddDecider()).on("ODD").to(oddStep())
                 .from(oddDecider()).on("EVEN").to(evenStep())
                 .from(oddStep()).on("*").to(oddDecider())
-                .from(oddDecider()).on("ODD").to(oddStep())
-                .from(oddDecider()).on("EVEN").to(evenStep())
                 .end()
                 .build();
     }

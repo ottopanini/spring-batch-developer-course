@@ -48,9 +48,9 @@ public class StepTransitionConfiguration {
     Job job() {
        return jobBuilderFactory.get("job")
                .start(step1())
-               .next(step3())
-               .next(step2())
-               .next(step2())
+               .on("COMPLETED").to(step2())
+               .from(step2()).on("COMPLETED").to(step3())
+               .from(step3()).end()
                .build();
     }
 }

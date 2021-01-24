@@ -64,9 +64,10 @@ Uses parameter in demo to be printed out in tasklet by injection.
 
 `@StepScope` means beans are lazily instantiated when the step using them is executed.
 
-run with: `java -jar target\job-parameters-0.0.1-SNAPSHOT.jar `**message**`=hello`
+run with: `java -jar target\job-parameters-0.0.1-SNAPSHOT.jar message=hello`
 
 first version can be executed multiple times. 2nd version is with spring batch database - repeated runs using same message will fail.
+
 `Caused by: org.springframework.batch.core.repository.JobInstanceAlreadyCompleteException: A job instance already exists and is complete for parameters={message=hello}.  If you want to run this job again, change the parameters.`
 
 

@@ -122,7 +122,35 @@ one record is:
 	</customer>
 ```
 
+### multiple flat files
+Reads multiple CSV files.
+```java
+    @Value("classpath*:/data/customer*.csv")
+    private Resource[] inputFiles;
 
+    ...
 
+    @Bean
+    MultiResourceItemReader<Customer> multiResourceItemReader() {
+        ...
+        itemReader.setResources(inputFiles);
+
+        return itemReader;
+    }
+
+```
+ResourceAware will handle storing resource information in generated objects.
+```java
+public class Customer implements ResourceAware {
+    ...
+    private Resource resource;
+
+    ...
+    @Override
+    public void setResource(Resource resource) {
+        this.resource = resource;
+    }
+
+```
 
 

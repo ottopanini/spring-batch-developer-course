@@ -29,6 +29,14 @@ types:
 - ItemProcessListener
 - ItemWriteListener
 
-Example shows batch listeners.
+Example shows use of batch listeners with:
+- ChunkListener
+- JobExecutionListener
+    - sends mail before and after job starts
+    - mail sending needs appropriate settings in application.properties
+- configuration
+    - item reader: uses ListItemReader
+
+
 
 

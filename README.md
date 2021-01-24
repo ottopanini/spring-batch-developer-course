@@ -152,5 +152,12 @@ public class Customer implements ResourceAware {
     }
 
 ```
+### item stream
+Demonstrates stateful job processing.
+![](state_schema.png)  
+
+![](item-sequence.png)
+
+*notice* needs to be run twice to fully do the job.
 
 

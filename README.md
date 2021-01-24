@@ -66,10 +66,18 @@ Uses parameter in demo to be printed out in tasklet by injection.
 
 run with: `java -jar target\job-parameters-0.0.1-SNAPSHOT.jar message=hello`
 
-first version can be executed multiple times. 2nd version is with spring batch database - repeated runs using same message will fail.
-
+first version can be executed multiple times. 2nd version is with spring batch database - repeated runs using same message will fail.  
 `Caused by: org.springframework.batch.core.repository.JobInstanceAlreadyCompleteException: A job instance already exists and is complete for parameters={message=hello}.  If you want to run this job again, change the parameters.`
 
+## Input & Output data
+
+ItemReader and ItemWriter  
+Item = Record
+
+### input interfaces
+
+Demonstrates a simple item reader reading a list of strings.  
+*notice*`.<String, String>chunk(2)` in the step config parametrises the types provided by the reader and consumed by the writer.
 
 
 

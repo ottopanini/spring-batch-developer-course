@@ -93,6 +93,34 @@ Use of database to read from. Example shows customer records readin in.
 Demo of CSV reading.   
 uses `DelimitedLineTokenizer`
 
+### reading XML
+Demo of reading xml data.
+```xml
+<customers>
+	<customer>
+		<id>1</id>
+		<firstName>Mufutau</firstName>
+		<lastName>Maddox</lastName>
+		<birthdate>2016-06-05 19:43:51PM</birthdate>
+	</customer>
+	<customer>
+		<id>2</id>
+		<firstName>Brenden</firstName>
+		<lastName>Cobb</lastName>
+		<birthdate>2016-01-06 13:18:17PM</birthdate>
+	</customer>
+...
+</customers>
+```
+one record is:
+```xml
+	<customer>
+		<id>1</id>
+		<firstName>Mufutau</firstName>
+		<lastName>Maddox</lastName>
+		<birthdate>2016-06-05 19:43:51PM</birthdate>
+	</customer>
+```
 
 
 

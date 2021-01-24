@@ -19,7 +19,16 @@ Demonstrates conditional flow based on state of job execution.
 ## nested jobs
 Demonstrates nested job configuration and start definition by application.properties.
 
+## listeners
 
+types:
+- JobExecutionListener
+- StepExecutionListener
+- CHunkListener
+- ItemReadListener
+- ItemProcessListener
+- ItemWriteListener
 
+Example shows batch listeners.
 
 

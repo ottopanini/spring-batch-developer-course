@@ -79,6 +79,10 @@ Item = Record
 Demonstrates a simple item reader reading a list of strings.  
 *notice*`.<String, String>chunk(2)` in the step config parametrises the types provided by the reader and consumed by the writer.
 
+### database input
+
+Use of database to read from. Example shows customer records readin in.
+
 
 
 

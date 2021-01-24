@@ -88,6 +88,10 @@ Use of database to read from. Example shows customer records readin in.
     - fetchsize = chunk size
     - paging requires key to determine current page position &rarr; unique sort field required
 
+### flat files
+
+Demo of CSV reading.   
+uses `DelimitedLineTokenizer`
 
 
 

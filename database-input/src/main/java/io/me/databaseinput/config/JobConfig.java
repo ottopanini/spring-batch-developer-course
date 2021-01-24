@@ -8,10 +8,15 @@ import org.springframework.batch.core.configuration.annotation.JobBuilderFactory
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
 import org.springframework.batch.item.ItemWriter;
 import org.springframework.batch.item.database.JdbcCursorItemReader;
+import org.springframework.batch.item.database.JdbcPagingItemReader;
+import org.springframework.batch.item.database.Order;
+import org.springframework.batch.item.database.support.MySqlPagingQueryProvider;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.domain.Sort;
 
 import javax.sql.DataSource;
+import java.util.HashMap;
 
 @Configuration
 public class JobConfig {
@@ -27,6 +32,7 @@ public class JobConfig {
         this.dataSource = dataSource;
     }
 
+/*
     @Bean
     JdbcCursorItemReader<Customer> cursorItemReader() {
         JdbcCursorItemReader<Customer> reader = new JdbcCursorItemReader<>();
@@ -37,6 +43,25 @@ public class JobConfig {
 
         return reader;
     }
+*/
+    @Bean
+    JdbcPagingItemReader<Customer> pagingItemReader() {
+        JdbcPagingItemReader<Customer> reader = new JdbcPagingItemReader<>();
+        reader.setDataSource(dataSource);
+        reader.setFetchSize(10);
+        reader.setRowMapper(new CustomerRowMapper());
+
+        MySqlPagingQueryProvider queryProvider = new MySqlPagingQueryProvider();
+        queryProvider.setSelectClause("id, firstName, lastName, birthdate");
+        queryProvider.setFromClause("FROM customer");
+        HashMap<String, Order> sortKeys = new HashMap<>(1);
+        sortKeys.put("id", Order.ASCENDING);
+        queryProvider.setSortKeys(sortKeys);
+        reader.setQueryProvider(queryProvider);
+
+        return reader;
+    }
+
 
     @Bean
     ItemWriter<Customer> cursorItemWriter() {
@@ -49,9 +74,9 @@ public class JobConfig {
 
     @Bean
     Step step() {
-        return stepBuilderFactory.get("step")
+        return stepBuilderFactory.get("step3")
                 .<Customer, Customer>chunk(10)
-                .reader(cursorItemReader())
+                .reader(pagingItemReader())
                 .writer(cursorItemWriter())
                 .build();
     }

@@ -82,6 +82,11 @@ Demonstrates a simple item reader reading a list of strings.
 ### database input
 
 Use of database to read from. Example shows customer records readin in.
+1. Cursor Item Reader
+    - !demo implementation not thread save!
+2. Paging Item Reader
+    - fetchsize = chunk size
+    - paging requires key to determine current page position &rarr; unique sort field required
 
 
 

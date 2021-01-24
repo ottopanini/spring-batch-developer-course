@@ -37,6 +37,37 @@ Example shows use of batch listeners with:
 - configuration
     - item reader: uses ListItemReader
 
+## job parameters
+
+Uses parameter in demo to be printed out in tasklet by injection.
+
+```java
+    @Bean
+    @StepScope
+    Tasklet helloWorldTasklet(@Value("#{jobParameters['message']}") String message) {
+        return ((stepContribution, chunkContext) ->  {
+            System.out.println(message);
+            return RepeatStatus.FINISHED;
+        });
+    }
+
+    @Bean
+    Step step() {
+        return stepBuilderFactory.get("step")
+                .tasklet(helloWorldTasklet(null))
+                .build();
+    }
+```
+*Notice* helloWorldTasklet is defined in the step configuration to be called with null. Actually this will be replaced by the value of the parameter by Spring. Spring uses it only as a reference to the bean generated just above.
+
+`@StepScope` means beans are lazily instantiated when the step using them is executed.
+
+run with: `java -jar target\job-parameters-0.0.1-SNAPSHOT.jar `**message**`=hello`
+
+
+
+
+
 
 
 

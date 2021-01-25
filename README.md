@@ -166,5 +166,6 @@ Demo writes to console output.
 ### database output
 Writing into a database.
 
-
+### flat file output
+Demonstrates writing of a file.
 

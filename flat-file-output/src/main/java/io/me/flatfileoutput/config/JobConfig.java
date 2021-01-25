@@ -1,6 +1,7 @@
 package io.me.flatfileoutput.config;
 
 import io.me.flatfileoutput.domain.Customer;
+import io.me.flatfileoutput.domain.CustomerLineAggregator;
 import io.me.flatfileoutput.domain.CustomerRowMapper;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
@@ -52,7 +53,8 @@ public class JobConfig {
     @Bean
     FlatFileItemWriter<Customer> customerItemWriter() throws Exception {
         FlatFileItemWriter<Customer> itemWriter = new FlatFileItemWriter<>();
-        itemWriter.setLineAggregator(new PassThroughLineAggregator<>());
+        itemWriter.setLineAggregator(new CustomerLineAggregator());
+
         String path = File.createTempFile("customerOutput", ".out").getAbsolutePath();
         System.out.println(">> to: " + path);
         itemWriter.setResource(new FileSystemResource(path));
@@ -63,7 +65,7 @@ public class JobConfig {
 
     @Bean
     Step step() throws Exception {
-        return stepBuilderFactory.get("step113")
+        return stepBuilderFactory.get("step1313")
                 .<Customer, Customer>chunk(10)
                 .reader(pagingItemReader())
                 .writer(customerItemWriter())

@@ -168,4 +168,9 @@ Writing into a database.
 
 ### flat file output
 Demonstrates writing of a file.
+2nd version uses JSON format.
+
+### xml output
+Shows writing of a xml file.
+
 

@@ -161,5 +161,10 @@ Demonstrates stateful job processing.
 *notice* needs to be run twice to fully do the job.
 
 ### item writer
-
 Demo writes to console output.
+
+### database output
+Writing into a database.
+
+
+

@@ -177,4 +177,9 @@ Shows writing of a xml file.
 How to write to multiple destinations. Reads from DB. Writes one XML and one JSON file.
 First version uses CompositeItemWriter.
 Second version writes the odd items to the JSON file and the even numbers to XML file.
-
+```java
+    ...
+    .stream(xmlItemWriter()) // inform spring batch the underlying writers used by the 
+    .stream(jsonItemWriter()) // ClassifierCompositeItemWriter are stateful
+    ...
+```

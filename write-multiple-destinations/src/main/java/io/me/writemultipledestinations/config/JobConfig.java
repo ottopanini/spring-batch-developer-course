@@ -12,6 +12,7 @@ import org.springframework.batch.item.database.JdbcPagingItemReader;
 import org.springframework.batch.item.database.Order;
 import org.springframework.batch.item.database.support.MySqlPagingQueryProvider;
 import org.springframework.batch.item.file.FlatFileItemWriter;
+import org.springframework.batch.item.support.ClassifierCompositeItemWriter;
 import org.springframework.batch.item.support.CompositeItemWriter;
 import org.springframework.batch.item.xml.StaxEventItemWriter;
 import org.springframework.context.annotation.Bean;
@@ -88,23 +89,21 @@ public class JobConfig {
     }
 
     @Bean
-    CompositeItemWriter<Customer> compositeItemWriter() throws Exception {
-        List<ItemWriter<? super Customer>> writers = new ArrayList<>();
-        writers.add(xmlItemWriter());
-        writers.add(jsonItemWriter());
+    ClassifierCompositeItemWriter<Customer> itemWriter() throws Exception {
+        ClassifierCompositeItemWriter<Customer> itemWriter = new ClassifierCompositeItemWriter<>();
+        itemWriter.setClassifier(new CustomerClassifier(jsonItemWriter(), xmlItemWriter()));
 
-        CompositeItemWriter<Customer> itemWriter = new CompositeItemWriter<>();
-        itemWriter.setDelegates(writers);
-        itemWriter.afterPropertiesSet();
         return itemWriter;
     }
 
     @Bean
     Step step() throws Exception {
-        return stepBuilderFactory.get("step366")
+        return stepBuilderFactory.get("step466")
                 .<Customer, Customer>chunk(10)
                 .reader(pagingItemReader())
-                .writer(compositeItemWriter())
+                .writer(itemWriter())
+                .stream(xmlItemWriter())
+                .stream(jsonItemWriter())
                 .build();
     }
 

@@ -173,4 +173,8 @@ Demonstrates writing of a file.
 ### xml output
 Shows writing of a xml file.
 
+### write multiple destinations
+How to write to multiple destinations. Reads from DB. Writes one XML and one JSON file.
+First version uses CompositeItemWriter.
+Second version writes the odd items to the JSON file and the even numbers to XML file.
 

@@ -187,3 +187,6 @@ Second version writes the odd items to the JSON file and the even numbers to XML
 Every process call returning null will be filtered from the output. 
 ### item processor interface
 Shows general use of an item processor transforming the name and firstname of customers to upper case.
+
+### filtering item processor
+Filters items while processing. Writes only items with odd ids to Json file.

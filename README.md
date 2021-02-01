@@ -183,3 +183,5 @@ Second version writes the odd items to the JSON file and the even numbers to XML
     .stream(jsonItemWriter()) // ClassifierCompositeItemWriter are stateful
     ...
 ```
+## Processing Models 
+### item processor interface

@@ -183,5 +183,7 @@ Second version writes the odd items to the JSON file and the even numbers to XML
     .stream(jsonItemWriter()) // ClassifierCompositeItemWriter are stateful
     ...
 ```
-## Processing Models 
+## Processing Models
+Every process call returning null will be filtered from the output. 
 ### item processor interface
+Shows general use of an item processor transforming the name and firstname of customers to upper case.

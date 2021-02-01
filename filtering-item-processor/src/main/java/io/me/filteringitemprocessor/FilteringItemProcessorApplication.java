@@ -1,0 +1,13 @@
+package io.me.filteringitemprocessor;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class FilteringItemProcessorApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(FilteringItemProcessorApplication.class, args);
+    }
+
+}

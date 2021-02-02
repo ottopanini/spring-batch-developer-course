@@ -65,7 +65,10 @@ public class JobConfig {
 
     @Bean
     ValidatingItemProcessor<Customer> itemProcessor() {
-        return new ValidatingItemProcessor<>(new CustomerValidator());
+        ValidatingItemProcessor<Customer> itemProcessor = new ValidatingItemProcessor<>(new CustomerValidator());
+        itemProcessor.setFilter(true);
+
+        return itemProcessor;
     }
 
     @Bean

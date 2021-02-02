@@ -193,3 +193,6 @@ Filters items while processing. Writes only items with odd ids to Json file.
 
 ### item-validator
 How to validate items in item processor.
+
+### composite item processor
+Chaining processing steps.

@@ -195,4 +195,4 @@ Filters items while processing. Writes only items with odd ids to Json file.
 How to validate items in item processor.
 
 ### composite item processor
-Chaining processing steps.
+Chaining processing steps. Combines the filter item processor from previous lesson with the uppercase item processor from the other previous lesson.

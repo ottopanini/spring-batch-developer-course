@@ -199,4 +199,4 @@ Chaining processing steps. Combines the filter item processor from previous less
 
 ## Learn How To Handle Errors and Scale Applications
 ### restart
-Shows how to restart a step.
+Shows how to restart a step. The test application needs 3 runs to complete all steps.

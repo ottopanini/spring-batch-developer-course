@@ -196,3 +196,7 @@ How to validate items in item processor.
 
 ### composite item processor
 Chaining processing steps. Combines the filter item processor from previous lesson with the uppercase item processor from the other previous lesson.
+
+## Learn How To Handle Errors and Scale Applications
+### restart
+Shows how to restart a step.

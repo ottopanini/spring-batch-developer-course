@@ -205,6 +205,9 @@ Shows how to restart a step. The test application needs 3 runs to complete all s
 If started with console parameter "retry" processing will fail at 42 some times and then succeed. The item processor is retrying only the one item that has failed. For the item writer this is different: it will retry the whole chunk if one item has failed.  
 Item readers can not be retried.
 
+### skip
+
+
 
 
 

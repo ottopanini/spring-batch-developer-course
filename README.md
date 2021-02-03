@@ -202,11 +202,11 @@ Chaining processing steps. Combines the filter item processor from previous less
 Shows how to restart a step. The test application needs 3 runs to complete all steps.
 
 ### retry
-If started with console parameter "retry" processing will fail at 42 some times and then succeed. The item processor is retrying only the one item that has failed. For the item writer this is different: it will retry the whole chunk if one item has failed.  
+If started with console parameter "retry=processing" processing will fail at 42 some times and then succeed. The item processor is retrying only the one item that has failed. For the item writer this is different: it will retry the whole chunk if one item has failed.  
 Item readers can not be retried.
 
 ### skip
-
+If started with console parameter "skip=processing" processing will fail at item 42 and then retry the whole chunk but this time item 42 won't be proceeded. For the item writer this is different: at first it fails with the parameter "skip=writer" and retry the whole chunk one item by time to figure out by wich item the exception occurs to have all other written successfully.
 
 
 

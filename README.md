@@ -229,12 +229,17 @@ Demonstrates skip listeners at first. Skip listeners can become handy when skipp
 Shows chunk processing, each on its own thread. Transfers from one db to another in chunks of 1000 items. Uses SimpleAsyncTaskExecutor which is not recommended in any production environment (uses no pooling, better use ThreadPoolExecutioners in that regard instead).  
 
 Performance gain (in opposition to the SimpleAsyncTaskExecutor is not used):
-18s vs 34s  
+18s vs 34s (100000 items) 
 
 Restartability is lost by this execution model because it is not possible to know which thread was the last executing the task.
 
 ### Async item processor
-Demonstrates use of an async item processor.
+Demonstrates use of an async item processor. There is a sleep phase while processing each item to simulate external processes. 
+9mins vs 24s (huge improvement)
+Ordered writing is not supported because of the asynchrnous processing and writing.
+
+
+
 
 
 

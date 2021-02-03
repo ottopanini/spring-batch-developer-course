@@ -208,7 +208,7 @@ Item readers can not be retried.
 ### skip
 If started with console parameter "skip=processing" processing will fail at item 42 and then retry the whole chunk but this time item 42 won't be proceeded. For the item writer this is different: at first it fails with the parameter "skip=writer" and retry the whole chunk one item by time to figure out by wich item the exception occurs to have all other written successfully.
 
-
-
+### skip (retry) listeners
+Demonstrates skip listeners at first. Skip listeners can become handy when skipped items should be stored somehow to get reprocessed later as an example. Interesting is here that the listener of the processor is called after the chunk is executed but the listener of the writer is just called when the next item is processed (of course after the chunk has been restarted). 
 
 

@@ -52,7 +52,7 @@ public class JobConfig {
     @StepScope
     public RetryItemWriter writer(@Value("#{jobParameters['retry']}") String retry) {
         RetryItemWriter writer = new RetryItemWriter();
-        writer.setRetry(StringUtils.hasText(retry) && retry.equalsIgnoreCase("processor"));
+        writer.setRetry(StringUtils.hasText(retry) && retry.equalsIgnoreCase("writer"));
         return writer;
     }
 

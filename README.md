@@ -233,7 +233,8 @@ Performance gain (in opposition to the SimpleAsyncTaskExecutor is not used):
 
 Restartability is lost by this execution model because it is not possible to know which thread was the last executing the task.
 
-
+### Async item processor
+Demonstrates use of an async item processor.
 
 
 

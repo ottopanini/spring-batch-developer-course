@@ -211,4 +211,21 @@ If started with console parameter "skip=processing" processing will fail at item
 ### skip (retry) listeners
 Demonstrates skip listeners at first. Skip listeners can become handy when skipped items should be stored somehow to get reprocessed later as an example. Interesting is here that the listener of the processor is called after the chunk is executed but the listener of the writer is just called when the next item is processed (of course after the chunk has been restarted). 
 
+## how to scale
+1. Multi-threaded step
+    - add task executor to each step - each chunk is processed on its own thread
+2. Async ItemProcessor/ItemWriter
+    - item processor returns a future - the processor logic itself is executed in a different thread
+    - the item writer then unwraps the future and writes the data
+    - allows to scale the processor logic within the same vm
+3. Partitioning
+    - dividing data into partitions so it can be parallelised
+    - advantage over multi-threaded step execution: each partition is executed as an independant step execution -> thread safety
+4. Remote chunking
+    - Processing and writing occur in a remote 'slave' 
+    - read is done by the master - but reads the whole records and sends them into processing -> much more I/O
+
+
+
+
 

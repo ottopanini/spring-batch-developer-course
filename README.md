@@ -225,7 +225,8 @@ Demonstrates skip listeners at first. Skip listeners can become handy when skipp
     - Processing and writing occur in a remote 'slave' 
     - read is done by the master - but reads the whole records and sends them into processing -> much more I/O
 
-
+### multi threaded step
+Shows chunk processing, each on its own thread. 
 
 
 

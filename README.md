@@ -1,6 +1,8 @@
 # spring-batch-developer-course
 Sources written during the ultimate spring batch developer course on Udemy.
 
+other sources: https://howtodoinjava.com/spring-batch/
+
 ## Getting started
 
 ### hello-world
@@ -242,7 +244,14 @@ Ordered writing is not supported because of the asynchrnous processing and writi
 Demonstrates dividing data into partitions. Restartable.
 
 ### remote partitioning
-Scale over multiple JVMs. RabbitMQ used for scaling. 
+Scale over multiple JVMs. RabbitMQ used for scaling. The message handler partitioner uses a simplified solution to know when the job is done - it just pulls the jobrepo. In real life you would implement a listener to check the messages returned. The stepExecutionRequestHandler() is the heart of the communication.
+Master/Slave Role can be activated on startup by profile.
+This is fully restartable. Low Overhead.
+
+
+
+
+
 
 
 

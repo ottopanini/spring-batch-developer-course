@@ -239,7 +239,11 @@ Demonstrates use of an async item processor. There is a sleep phase while proces
 Ordered writing is not supported because of the asynchrnous processing and writing.
 
 ### Local partitioning
-Demonstrates dividing data into partitions.
+Demonstrates dividing data into partitions. Restartable.
+
+### remote partitioning
+Scale over multiple JVMs. RabbitMQ used for scaling. 
+
 
 
 

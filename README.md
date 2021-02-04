@@ -238,6 +238,10 @@ Demonstrates use of an async item processor. There is a sleep phase while proces
 9mins vs 24s (huge improvement)
 Ordered writing is not supported because of the asynchrnous processing and writing.
 
+### Local partitioning
+Demonstrates dividing data into partitions.
+
+
 
 
 

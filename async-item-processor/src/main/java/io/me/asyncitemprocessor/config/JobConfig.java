@@ -6,6 +6,8 @@ import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
+import org.springframework.batch.integration.async.AsyncItemProcessor;
+import org.springframework.batch.integration.async.AsyncItemWriter;
 import org.springframework.batch.item.ItemProcessor;
 import org.springframework.batch.item.database.BeanPropertyItemSqlParameterSourceProvider;
 import org.springframework.batch.item.database.JdbcBatchItemWriter;
@@ -20,6 +22,7 @@ import javax.sql.DataSource;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Random;
+import java.util.function.Function;
 
 @Configuration
 public class JobConfig {
@@ -63,8 +66,8 @@ public class JobConfig {
     }
 
     @Bean
-    AsyncItemProcessor<Customer, Customer> asyncItemProcessor() {
-        AsyncItemProcessor<Customer, Customer> asyncItemProcessor = new AsyncItemProcessor();
+    AsyncItemProcessor<Customer, Customer> asyncItemProcessor() throws Exception {
+        AsyncItemProcessor<Customer, Customer> asyncItemProcessor = new AsyncItemProcessor<>();
 
         asyncItemProcessor.setDelegate(itemProcessor());
         asyncItemProcessor.setTaskExecutor(new SimpleAsyncTaskExecutor());
@@ -85,8 +88,8 @@ public class JobConfig {
     }
 
     @Bean
-    AsyncItemWriter<Customer> asyncItemWriter() {
-        AsyncItemWriter<Customer> asyncItemWriter = new AsyncItemWriter();
+    AsyncItemWriter<Customer> asyncItemWriter() throws Exception {
+        AsyncItemWriter<Customer> asyncItemWriter = new AsyncItemWriter<>();
         asyncItemWriter.setDelegate(customerItemWriter());
         asyncItemWriter.afterPropertiesSet();
 
@@ -94,7 +97,7 @@ public class JobConfig {
     }
 
     @Bean
-    Step step() {
+    Step step() throws Exception {
         return stepBuilderFactory.get("step1")
                 .<Customer, Customer>chunk(1000)
                 .reader(pagingItemReader())
@@ -104,7 +107,7 @@ public class JobConfig {
     }
 
     @Bean
-    Job job() {
+    Job job() throws Exception {
         return jobBuilderFactory.get("job")
                 .start(step())
                 .build();

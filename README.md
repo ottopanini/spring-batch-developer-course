@@ -248,6 +248,9 @@ Scale over multiple JVMs. RabbitMQ used for scaling. The message handler partiti
 Master/Slave Role can be activated on startup by profile.
 This is fully restartable. Low Overhead.
 
+### remote chunking
+Scale chunking over multiple JVMs.
+
 
 
 

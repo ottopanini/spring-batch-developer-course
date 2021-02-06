@@ -249,7 +249,7 @@ Master/Slave Role can be activated on startup by profile.
 This is fully restartable. Low Overhead.
 
 ### remote chunking
-Scale chunking over multiple JVMs.
+Scale chunking over multiple JVMs. If Input is hardly shardable. The master does the reading and sends it over the wire (in opposition to remote partitioning which just only sends a description of the 'page' to read). 
 
 
 

@@ -269,6 +269,8 @@ Simple application example of how to stop a job. Jobs will be launched in the ba
 curl -X DELETE localhost:8080/<id returned by start>
 ```
 
+### Scheduling a job
+Use of cron jobs.
 
 
 

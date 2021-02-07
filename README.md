@@ -257,7 +257,12 @@ Web controller to start a job. At first a REST controller was implemented. A job
 ```win
 curl --data "name=foo" localhost:8080
 ``` 
-starts step 'foo'.
+starts step 'foo'.  
+Second version uses another approach where the job to start can be provided as string. 
+```win
+curl --data "name=bar" localhost:8080
+``` 
+
 
 
 

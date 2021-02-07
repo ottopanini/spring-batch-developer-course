@@ -253,8 +253,11 @@ Scale chunking over multiple JVMs. If Input is hardly shardable. The master does
 
 ## Job Orchestration & Spring Integration
 ### Introduction - starting a job
-Web controller to start a job.
-
+Web controller to start a job. At first a REST controller was implemented. A job can be started via:
+```win
+curl --data "name=foo" localhost:8080
+``` 
+starts step 'foo'.
 
 
 

@@ -20,9 +20,8 @@ import org.springframework.core.task.SimpleAsyncTaskExecutor;
 
 import javax.sql.DataSource;
 import java.util.HashMap;
-import java.util.Locale;
 import java.util.Random;
-import java.util.function.Function;
+import java.util.concurrent.Future;
 
 @Configuration
 public class JobConfig {
@@ -98,8 +97,8 @@ public class JobConfig {
 
     @Bean
     Step step() throws Exception {
-        return stepBuilderFactory.get("step1")
-                .<Customer, Customer>chunk(1000)
+        return stepBuilderFactory.get("step4")
+                .<Customer, Future<Customer>>chunk(1000)
                 .reader(pagingItemReader())
                 .processor(asyncItemProcessor())
                 .writer(asyncItemWriter())

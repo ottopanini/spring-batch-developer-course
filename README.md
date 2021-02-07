@@ -264,7 +264,11 @@ curl --data "name=bar" localhost:8080
 ``` 
 
 ### Stopping a job
-Simple application example of how to stop a job.
+Simple application example of how to stop a job. Jobs will be launched in the background and the request will be responded immediatly. Changes the BatchStatus, so the job will exit gracefully the next time the status is checked. 
+```
+curl -X DELETE localhost:8080/<id returned by start>
+```
+
 
 
 

@@ -263,6 +263,10 @@ Second version uses another approach where the job to start can be provided as s
 curl --data "name=bar" localhost:8080
 ``` 
 
+### Stopping a job
+Simple application example of how to stop a job.
+
+
 
 
 
